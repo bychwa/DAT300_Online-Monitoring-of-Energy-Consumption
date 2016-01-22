@@ -15,5 +15,6 @@ class PowerCounter(Bolt):
         power = tup.values[1]
         
         self.counts[socket] += power
+
         self.emit([socket, self.counts[socket]])
         self.log('%s: %d' % (socket, self.counts[socket]))
