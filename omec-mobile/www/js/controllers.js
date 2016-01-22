@@ -1,6 +1,6 @@
 angular.module('app.controllers', ['highcharts-ng'])
   
-.controller('dashboardCtrl', function($scope,$http) {
+.controller('dashboardCtrl', function($scope,$http,$interval) {
 
 		var data = [], time = (new Date()).getTime(), i;
             for (i = -99; i <= 0; i += 1) {
@@ -14,7 +14,6 @@ angular.module('app.controllers', ['highcharts-ng'])
 							    title: {
 					                text: 'Energy Comsumption Chart'
 					            },
-
 					            subtitle: {
 					                text: 'Accumulated power comsumption for all sockets today!'
 					            },
@@ -36,13 +35,25 @@ angular.module('app.controllers', ['highcharts-ng'])
 					            data : data
 					        }]
        					}
-			console.log(data);
-
+		console.log(data);
+		
 		$scope.add_points=function(){
 			$scope.chartConfig.series[0].data.push([(new Date()).getTime()+ 30 *1000,Math.round(Math.random() * 100)]);
+		}
 
-		}				    
-
+		$scope.check_for_new_data=function(){
+			$scope.add_points();
+		}
+		
+		var promise = $interval($scope.check_for_new_data, 2000);
+    
+	    // Cancel interval on page changes
+	    $scope.$on('$destroy', function(){
+	        if (angular.isDefined(promise)) {
+	            $interval.cancel(promise);
+	            promise = undefined;
+	        }
+	    });
 })
    
 .controller('addSocketCtrl', function($scope,$rootScope,Socket) {
