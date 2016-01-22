@@ -12,7 +12,7 @@ angular.module('app.controllers', ['highcharts-ng'])
 
 		$scope.chartConfig = {
 								options:{
-									chart:{ type:"area"}
+									chart:{ type:"line"}
 								},
 							    title: {
 					                text: 'Energy Comsumption Chart'
@@ -23,7 +23,8 @@ angular.module('app.controllers', ['highcharts-ng'])
 					            yAxis:{
 					            	title:{
 					                    text: "Power ( Watts )"
-					                }
+					                },
+					                maxZoom: 0.1
 					            },
 					            xAxis: {
 					                gapGridLineWidth: 0,
@@ -40,9 +41,7 @@ angular.module('app.controllers', ['highcharts-ng'])
        					}
 		console.log(data);
 		$scope.change_chart_type=function(type){
-
 			$scope.chartConfig.options.chart.type=type;
-			
 		}
 		$scope.add_points=function(){
 			$scope.chartConfig.series[0].data.push([(new Date()).getTime()+ 30 *1000,Math.round(Math.random() * 100)]);
