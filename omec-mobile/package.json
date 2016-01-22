@@ -1,7 +1,7 @@
 {
   "name": "omec",
   "version": "1.1.1",
-  "description": "OMEC: An Ionic project",
+  "description": "OMEC: An app for online monitoring of power consumption.",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",

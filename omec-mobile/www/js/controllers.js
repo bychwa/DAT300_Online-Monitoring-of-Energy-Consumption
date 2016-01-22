@@ -11,6 +11,9 @@ angular.module('app.controllers', ['highcharts-ng'])
             }
 
 		$scope.chartConfig = {
+								options:{
+									chart:{ type:"area"}
+								},
 							    title: {
 					                text: 'Energy Comsumption Chart'
 					            },
@@ -36,7 +39,11 @@ angular.module('app.controllers', ['highcharts-ng'])
 					        }]
        					}
 		console.log(data);
-		
+		$scope.change_chart_type=function(type){
+
+			$scope.chartConfig.options.chart.type=type;
+			
+		}
 		$scope.add_points=function(){
 			$scope.chartConfig.series[0].data.push([(new Date()).getTime()+ 30 *1000,Math.round(Math.random() * 100)]);
 		}
