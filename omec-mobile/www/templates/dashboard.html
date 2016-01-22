@@ -2,8 +2,16 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header transparent">
         
         <highchart id="chart1" config="chartConfig" class="card"></highchart>
-        
-        <!-- <button ng-click="add_points()">Add Pts</button> -->
+        <div class="card">
+		  <div class="item item-text-wrap">
+		  	<h3 style="text-align:center">Chart Type</h3><hr/>
+		    <div class="button-bar">
+			  <a class="button" ng-click="change_chart_type('line')">Line</a>
+			  <a class="button" ng-click="change_chart_type('area')">Area</a>
+			  <a class="button" ng-click="change_chart_type('spline')">Spline</a>
 
+			</div>
+		  </div>
+		</div>
     </ion-content>
 </ion-view>
