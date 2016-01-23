@@ -62,7 +62,22 @@ angular.module('app.services', [])
       }      
   };
 })
-
+.factory('Readings', function($http,$q) {
+  
+  return {
+    all: function() {
+        var deferred = $q.defer();
+            $http.get('http://api.bawalab.com/omec/all_readings').then(
+                      function(data){
+                        deferred.resolve(data.data);
+                    },
+                    function(error){
+                        deferred.reject(error);
+                    });
+        return deferred.promise;
+    }      
+  };
+})
 .factory('$localstorage', ['$window', function($window) {
   return {
     set: function(key, value) {
