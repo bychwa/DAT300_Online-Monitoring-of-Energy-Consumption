@@ -38,7 +38,6 @@ class RequestHandler(BaseHTTPRequestHandler):
     	    row['threshold']=socket['threshold']
     	    getValues.append(row)
     
-        # print json.dumps(getValues, separators=(',',':'))
         print getValues
 
         self.send_response(200)
