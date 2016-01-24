@@ -8,7 +8,7 @@
     {"power-spout" (python-spout-spec
           options
           "spouts.power.PowerSpout"
-          ["socket" "power"]
+          ["socket" "power" "email" "threshold"]
           )
     }
     ;; bolt configuration
