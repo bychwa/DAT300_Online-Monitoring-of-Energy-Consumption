@@ -97,7 +97,7 @@ angular.module('app.controllers', ['highcharts-ng'])
 	});
 	
 	$scope.set_status=function(socket){
-
+		console.log("changing status");
 		Socket.set_status(socket).then(function(response){
 			console.log('status changed',response);
 		});
@@ -128,7 +128,7 @@ angular.module('app.controllers', ['highcharts-ng'])
 	});
 
 	$scope.set_status=function(socket){
-
+		console.log("changing status");
 		Socket.set_status(socket).then(function(response){
 			console.log('status changed',response);
 		});

@@ -7,7 +7,7 @@
     ;; spout configuration
     {"power-spout" (python-spout-spec
           options
-          "spouts.power.PowerSpout"
+          "spouts.powerspout.PowerSpout"
           ["socket" "power" "email" "threshold"]
           )
     }
@@ -15,7 +15,7 @@
     {"count-bolt" (python-bolt-spec
           options
           {"power-spout" :shuffle}
-          "bolts.power.PowerCounter"
+          "bolts.powerbolt.PowerCounter"
           ["socket" "count"]
           :p 2
           )
