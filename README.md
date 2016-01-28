@@ -15,7 +15,7 @@ Demo video on how the System works can be seen [here](https://www.youtube.com/wa
 > 2. Odroid Microcontroller / Computer that contains linux operating system. More info [here](http://odroid.com/)
 > 3. Python 3
 > 4. Streamparse. Python wrapper/implementation of the Storm Processing engine. More info [here](http://streamparse.readthedocs.org/en/master/index.html)
-> 5. IOS/Android tablet with OMEC App. Can be downloaded from [here](https://drive.google.com)
+> 5. IOS/Android tablet with OMEC App. Can be downloaded from [here](https://drive.google.com/file/d/0B5bUySymGtDgNFlyY0lxQ2s5UEk/view?usp=sharing)
 
 # Installation
 > 1. Download project code from here to your computer
