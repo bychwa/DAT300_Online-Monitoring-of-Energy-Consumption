@@ -8,14 +8,14 @@ Today's homes have seen an increase in the use of advanced metering infrastructu
 In this project, we aim to look at the domestic online monitoring of energy consumption. A small ZigBee network will be setup by having a source sensor forwarding energy consumption information to a server sensor. The server will run a lightweight Stream Processing Engine prototype which will process this kind of information. We aim to take advantage of this capability by allowing the energy user(s) to set their own threshold energy usage value. Once this value is reached, the system will generate an “alarm” that can be sent to the user via email and/or SMS, notifying them that their usage has exceeded their desired usage preference.
 
 # Demo Video
-Demo video on how the System works can be seen here
+Demo video on how the System works can be seen [here](https://www.youtube.com/watch?v=nL0vurj2BsQ)
 
 # Prerequisites
-> 1. This system uses plugwise electric plugs and stick connect, collect and transfer socket power usage information. More info here
-> 2. Odroid Microcontroller / Computer that contains linux operating system. More info here
+> 1. This system uses plugwise electric plugs and stick connect, collect and transfer socket power usage information. More info [here](https://www.plugwise.com)
+> 2. Odroid Microcontroller / Computer that contains linux operating system. More info [here](http://odroid.com/)
 > 3. Python 3
-> 4. Streamparse. Python wrapper/implementation of the Storm Processing engine. More info here
-> 5. IOS/Android tablet with OMEC App. Can be downloaded from here
+> 4. Streamparse. Python wrapper/implementation of the Storm Processing engine. More info [here](http://streamparse.readthedocs.org/en/master/index.html)
+> 5. IOS/Android tablet with OMEC App. Can be downloaded from [here](https://drive.google.com)
 
 # Installation
 > 1. Download project code from here to your computer
