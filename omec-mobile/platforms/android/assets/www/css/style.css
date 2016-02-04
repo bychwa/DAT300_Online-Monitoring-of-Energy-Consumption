@@ -1,0 +1,75 @@
+.background{
+  /*background-image: url(img/green-city.jpg);*/
+  background-image:url('../img/green-city.jpg');
+  background-repeat:no-repeat;
+  /*background-size:contain;*/
+  background-position:center;
+  /*background-size: 100%;*/
+
+	  /*-webkit-background-size: 100% 100% 100% 100%;
+	  -moz-background-size: 100%;
+	*/
+}
+.transparent{
+	opacity: 0.9;
+}
+.background_color{
+	background-color: #37474F;
+}
+.lime-green{
+	background-color: #9f9fa3;
+}
+.deep-green{
+	background-color: #0099e5;
+}
+.khaki {
+	background-color: #d7d7d8;
+}
+
+.red{
+	background-color: #e2142d;
+}
+.orange{
+	background-color: #e95814;
+}
+.blue {
+	background-color: #136ad5;
+}
+.green{
+	background-color: #4bad31;
+}
+.yellow{
+	background-color: #f5dc00;
+}
+
+
+.bg-color { background-color: #ed1b2e; }
+.text-color { color: #ed1b2e; }
+.bg-color-2 { background-color: #6d6e70; }
+.text-color-2 { color: #6d6e70; }
+.bg-color-3 { background-color: #d7d7d8; }
+.text-color-3 { color: #d7d7d8; }
+.bg-color-4 { background-color: #b4a996; }
+.text-color-4 { color: #b4a996; }
+.bg-color-5 { background-color: #ecb731; }
+.text-color-5 { color: #ecb731; }
+.bg-color-6 { background-color: #8ec06c; }
+.text-color-6 { color: #8ec06c; }
+.bg-color-7 { background-color: #537b35; }
+.text-color-7 { color: #537b35; }
+.bg-color-8 { background-color: #c4dff6; }
+.text-color-8 { color: #c4dff6; }
+.bg-color-9 { background-color: #56a0d3; }
+.text-color-9 { color: #56a0d3; }
+.bg-color-10 { background-color: #0091cd; }
+.text-color-10 { color: #0091cd; }
+.bg-color-11 { background-color: #004b79; }
+.text-color-11 { color: #004b79; }
+.bg-color-12 { background-color: #7f181b; }
+.text-color-12 { color: #7f181b; }
+.bg-color-13 { background-color: #d7d7d8; }
+.text-color-13 { color: #d7d7d8; }
+.bg-color-14 { background-color: #9f9fa3; }
+.text-color-14 { color: #9f9fa3; }
+.bg-color-15 { background-color: #000000; }
+.text-color-15 { color: #000000; }

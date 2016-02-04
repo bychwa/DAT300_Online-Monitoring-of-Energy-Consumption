@@ -1,0 +1,31 @@
+<ion-view title="ADD SOCKET" class="khaki background">
+    <ion-content overflow-scroll="true" padding="true" class="has-header transparent">
+        <div class="list card">
+        
+            <div class="item item-divider">New Socket</div>
+                <div class="item item-body">
+                    <label class="item item-input">
+                        <span class="input-label">Name</span>
+                        <input type="text" ng-model="new_socket.name">
+                    </label>
+                    
+                    <label class="item item-input">
+                        <span class="input-label">MAC</span>
+                        <input type="text" ng-model="new_socket.mac">
+                    </label>
+                    <br/>  
+                    <div class="button" ng-click="add_socket(new_socket)">
+                        <button class="button button-icon  icon-left ion-android-add-circle" >Add this Socket</button>
+                    </div>
+                </div>
+            </div>
+    
+            <ion-list can-swipe="true">
+                <ion-item class="item" ng-repeat="socket in sockets">
+                    <ion-toggle ng-model="socket.active" ng-checked="{{ socket.active }}" ng-change="set_status(socket)"> Name : {{ socket.name }} MAC: {{ socket.mac }} </ion-toggle>
+                    <ion-option-button class="button-assertive" ng-click="delete_socket($index,socket)"> Delete </ion-option-button>
+                </ion-item>
+            </ion-list>
+
+    </ion-content>
+</ion-view>

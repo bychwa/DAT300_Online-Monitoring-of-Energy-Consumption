@@ -5,34 +5,34 @@ from streamparse.bolt import Bolt
 import requests
 
 class PowerCounter(Bolt):
-    
-    # initialises TotalPower and counter object
-    def initialize(self, conf, ctx):
-        self.TotalPower = Counter()
-        self.PowerIterations=Counter()
 
-    # processes each value received from the power-spout
+    def initialize(self, conf, ctx):
+        self.counts = Counter()
+        self.counts_count=Counter()
+        self.last_sum=0
+        self.last_count=0
+        
     def process(self, tup):
-        # tup - contain values from the power-spout
         socket = tup.values[0]
         power = tup.values[1]
         email = tup.values[2]
         threshold = tup.values[3]
 
-        # TotalPower power values + TotalPower iterations
-        self.TotalPower[socket] += power
-        self.PowerIterations[socket] += 1
+        self.counts[socket] += power
+        self.counts_count[socket] += 1
+        self.emit([socket, self.counts[socket]])
             
-        self.emit([socket, self.TotalPower[socket]])
-            
-        # checks if the iterations == 5 then sends the average values to the database for storing
-        if self.PowerIterations[socket]%5==0:
-            average=self.TotalPower[socket]/self.PowerIterations[socket]
+        #sending data for statistics
+        if self.counts_count[socket]%3==0:
+            average = self.counts[socket]/self.counts_count[socket]
+            self.last_sum += self.counts[socket]
+            self.last_count += self.counts_count[socket]
+            self.counts[socket]=0
+            self.counts_count[socket]=0
             data= requests.get('http://api.bawalab.com/omec/add_readings?mac='+str(socket)+'&power='+str(average))
-        
-        # checks if the socket has exceeded set threshold then notifies the user    
-        if float(self.TotalPower[socket]) >= float(threshold):
-            data= requests.get('http://api.bawalab.com/omec/notify?mac='+str(socket)+'&power='+str(self.TotalPower[socket]))
-            self.log('%s: %d -- Alarm ' % (socket, self.TotalPower[socket]))
+            
+        if (float(self.counts[socket])+self.last_sum) >= float(threshold):
+            data= requests.get('http://api.bawalab.com/omec/notify?mac='+str(socket)+'&power='+str(self.counts[socket]))
+            self.log('%s: %d -- Alarm ' % (socket, self.counts[socket]))
         else:    
-            self.log('%s: %d' % (socket, self.TotalPower[socket]))
+            self.log('%s: %d' % (socket, self.counts[socket]))
