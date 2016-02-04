@@ -9,23 +9,21 @@ import ast
 from streamparse.spout import Spout
 
 class PowerSpout(Spout):
-    
-    # initializes the spout parameter values
+
     def initialize(self, stormconf, context):
-        self.server_url = "http://127.0.0.1:8080"
+        self.words = itertools.cycle(['dog', 'cat',
+                                    'zebra', 'elephant'])
 
     def next_tuple(self):
-        # get power values for all sockets + format them properly
-        raw_socketsdata= requests.get(self.server_url).content
-        prepared_socketsdata=ast.literal_eval(raw_socketsdata)
-        
-        # for each socket values + prepare them + send them to the powerbolt
-        for socketdata in prepared_socketsdata:
-            socket = socketdata["mac"]
-            power = float(socketdata["power"])
-            email = socketdata["email"]
-            threshold = socketdata["threshold"]
-            self.emit([socket,power,email,threshold])
-        
-        # waits for 3 seconds before the next data request
-        time.sleep(3)
+        data= requests.get('http://127.0.0.1:8080').content
+        dataset=ast.literal_eval(data)
+        if len(dataset)==0:
+    	    self.emit(["0",0,"jacksonisack@gmail.com","100"])
+        else:
+	    for d in dataset:
+                socket = d["mac"]
+                power = float(d["power"])
+                email = d["email"]
+                threshold = d["threshold"]
+                self.emit([socket,power,email,threshold])
+        time.sleep(1)

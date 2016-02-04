@@ -2,24 +2,21 @@
 import plugwise
 from plugwise import Circle
 from plugwise import Stick
+import time
 
 class PlugwiseOperator():
 
-    #initializes the plugwise operator for a specific stick and doogle
     def __init__(self, port,mac):
         stick = Stick(port)
         self.socket = Circle(mac, stick)
         self.socketActive = True
         self.socketUsage = 0
 
-    # toogles the socket state i.e if ON or OFF
     def setStatus(self,status):
         if status == "true":
             self.socket.switch_on()
         else:
             self.socket.switch_off()
-
-    # returns the current state of the socket        
     def getStatus(self):
         if self.socketActive:
             try:
@@ -35,9 +32,8 @@ class PlugwiseOperator():
         else:
             pwUsage = self.socketUsage
         return pwIsOn
-    
-    #   returns power values of the socket  
-    def getPower(self):
+        
+    def getData(self):
         if self.socketActive:
             try:
                 pwUsage = round(self.socket.get_power_usage(), 2)

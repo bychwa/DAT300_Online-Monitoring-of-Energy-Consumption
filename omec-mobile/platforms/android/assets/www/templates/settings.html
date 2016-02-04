@@ -1,0 +1,20 @@
+<ion-view title="Settings" class="khaki background">
+    <ion-content overflow-scroll="true" padding="true" class="has-header transparent">
+        <div class="list card" ng-repeat="socket in sockets">
+            <div class="item item-divider">Socket Name:{{ socket.name }} - Socket Mac: {{ socket.mac }}</div>
+            <div class="item item-body">
+                <form class="list">
+                    <label class="item item-input">
+                        <span class="input-label">Threshold</span>
+                        <input type="text" ng-change="add_threshold(socket)" ng-model="socket.threshold" placeholder="200W">
+                    </label>
+                    <ion-toggle ng-change="set_status(socket)" ng-model="socket.active" ng-checked="{{ socket.active }}">Active</ion-toggle>
+                    <label class="item item-input">
+                        <span class="input-label">Notification Email</span>
+                        <input type="text" ng-change="add_notification(socket)" ng-model="socket.email" placeholder="email@mail.com">
+                    </label>
+                </form>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
